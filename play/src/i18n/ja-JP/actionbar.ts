@@ -1,9 +1,9 @@
 import type { BaseTranslation } from "../i18n-types";
 
 const actionbar: BaseTranslation = {
-    chat: "Open / Close chat",
-    follow: "Follow",
-    unfollow: "Unfollow",
+    chat: "チャットを開く／閉じる",
+    follow: "フォロー",
+    unfollow: "フォローをやめる",
     lock: "Lock / Unlock discussion",
     screensharing: "Start / Stop sharing your screen",
     layout: "Toggle tile view",
