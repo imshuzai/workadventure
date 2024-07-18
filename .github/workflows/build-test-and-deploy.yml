@@ -39,7 +39,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-play
+          images: imshuzai/workadventure-play
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -49,10 +49,10 @@ jobs:
           file: play/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: thecodingmachine/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-play:develop
+            type=registry,ref=imshuzai/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-play:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
@@ -70,10 +70,10 @@ jobs:
           file: play/Dockerfile
           platforms: linux/amd64
           push: false
-          tags: thecodingmachine/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-play:develop
+            type=registry,ref=imshuzai/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-play:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/play.tar
@@ -101,7 +101,7 @@ jobs:
             -e SENTRY_PROJECT \
             -e SENTRY_RELEASE \
             -e SENTRY_ENVIRONMENT \
-            thecodingmachine/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }} \
+            imshuzai/workadventure-play:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }} \
             /bin/sh -c 'npm install --dev && npm run push-sentry-sourcemaps'
 
 
@@ -141,7 +141,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-chat
+          images: imshuzai/workadventure-chat
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -151,10 +151,10 @@ jobs:
           file: chat/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: thecodingmachine/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-chat:develop
+            type=registry,ref=imshuzai/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-chat:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
@@ -172,10 +172,10 @@ jobs:
           file: chat/Dockerfile
           platforms: linux/amd64
           push: false
-          tags: thecodingmachine/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-chat:develop
+            type=registry,ref=imshuzai/workadventure-chat:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-chat:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/chat.tar
@@ -216,7 +216,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-back
+          images: imshuzai/workadventure-back
 
       - name: Replace version string
         run: |
@@ -232,10 +232,10 @@ jobs:
           file: back/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: thecodingmachine/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-back:develop
+            type=registry,ref=imshuzai/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-back:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
 
@@ -246,10 +246,10 @@ jobs:
           file: back/Dockerfile
           platforms: linux/amd64
           push: false
-          tags: thecodingmachine/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-back:develop
+            type=registry,ref=imshuzai/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-back:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/back.tar
@@ -276,7 +276,7 @@ jobs:
               -e SENTRY_PROJECT \
               -e SENTRY_RELEASE \
               -e SENTRY_ENVIRONMENT \
-              thecodingmachine/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }} \
+              imshuzai/workadventure-back:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }} \
               /bin/sh -c 'npm install --dev && npm run push-sentry-sourcemaps'
 
 
@@ -312,7 +312,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-uploader
+          images: imshuzai/workadventure-uploader
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -320,10 +320,10 @@ jobs:
         with:
           file: uploader/Dockerfile
           push: true
-          tags: thecodingmachine/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-uploader:develop
+            type=registry,ref=imshuzai/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-uploader:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
 
@@ -332,10 +332,10 @@ jobs:
         with:
           file: uploader/Dockerfile
           push: false
-          tags: thecodingmachine/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-uploader:develop
+            type=registry,ref=imshuzai/workadventure-uploader:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-uploader:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/uploader.tar
@@ -375,7 +375,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-maps
+          images: imshuzai/workadventure-maps
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -384,10 +384,10 @@ jobs:
           context: maps/
           file: maps/Dockerfile
           push: true
-          tags: thecodingmachine/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-maps:develop
+            type=registry,ref=imshuzai/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-maps:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
 
@@ -397,10 +397,10 @@ jobs:
           context: maps/
           file: maps/Dockerfile
           push: false
-          tags: thecodingmachine/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-maps:develop
+            type=registry,ref=imshuzai/workadventure-maps:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-maps:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/maps.tar
@@ -441,7 +441,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-map-storage
+          images: imshuzai/workadventure-map-storage
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -451,10 +451,10 @@ jobs:
           file: map-storage/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: thecodingmachine/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-map-storage:develop
+            type=registry,ref=imshuzai/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-map-storage:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
 
@@ -465,10 +465,10 @@ jobs:
           file: map-storage/Dockerfile
           platforms: linux/amd64
           push: false
-          tags: thecodingmachine/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-map-storage:develop
+            type=registry,ref=imshuzai/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-map-storage:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/map-storage.tar
@@ -495,7 +495,7 @@ jobs:
             -e SENTRY_PROJECT \
             -e SENTRY_RELEASE \
             -e SENTRY_ENVIRONMENT \
-            thecodingmachine/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }} \
+            imshuzai/workadventure-map-storage:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }} \
             /bin/sh -c 'cd /usr/src && npm ci -w map-storage && cd /usr/src/map-storage && npm run push-sentry-sourcemaps'
 
       - name: Zip image
@@ -534,7 +534,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: thecodingmachine/workadventure-ejabberd
+          images: imshuzai/workadventure-ejabberd
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -543,10 +543,10 @@ jobs:
           context: xmpp/
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: thecodingmachine/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-ejabberd:develop
+            type=registry,ref=imshuzai/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-ejabberd:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
 
@@ -556,10 +556,10 @@ jobs:
           context: xmpp/
           platforms: linux/amd64
           push: false
-          tags: thecodingmachine/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+          tags: imshuzai/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
           cache-from: |
-            type=registry,ref=thecodingmachine/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
-            type=registry,ref=thecodingmachine/workadventure-ejabberd:develop
+            type=registry,ref=imshuzai/workadventure-ejabberd:${{ github.event_name == 'pull_request' && env.GITHUB_HEAD_REF_SLUG || env.GITHUB_REF_SLUG }}
+            type=registry,ref=imshuzai/workadventure-ejabberd:develop
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=docker,dest=/tmp/ejabberd.tar
